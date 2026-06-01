@@ -97,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               );
             },
           ),
+          Positioned(left:0, right: 0, top: 0, bottom: 0, child: Image.asset(ImageLinks.foodLogo, height: 127, width: 377,)),
           AnimatedBuilder(
             animation: _resizes[1],
             builder: (context, child) {
