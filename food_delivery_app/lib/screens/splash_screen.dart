@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:food_delivery_app/constants/image_links.dart';
-import 'package:food_delivery_app/home_screen.dart';
+import 'package:food_delivery_app/screens/welcome_screen_one.dart';
 import 'package:food_delivery_app/widgets/splash_screen/animated_rotation_circle_widget.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,14 +22,13 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void initState() {
-
-    Timer(const Duration(milliseconds: 4003), () {
+    Timer(const Duration(milliseconds: 4000), () {
       if (!mounted) return;
-      Navigator.of(
-        context,
-      ).pushReplacement(MaterialPageRoute(builder: (context) => HomeScreen()));
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => WelcomeScreenOne()),
+      );
     });
-    
+
     _animationControllers = List.generate(
       2,
       (i) => AnimationController(vsync: this, duration: Duration(seconds: 4)),
@@ -68,6 +67,17 @@ class _SplashScreenState extends State<SplashScreen>
       controller.forward();
     }
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    for (var controller in _resizeAnimationController) {
+      controller.dispose();
+    }
+    for (var controller in _animationControllers) {
+      controller.dispose();
+    }
+    super.dispose();
   }
 
   @override
@@ -115,7 +125,11 @@ class _SplashScreenState extends State<SplashScreen>
                   listenable: _rotations[1],
                   height: 140,
                   width: 7,
-                  colors: [Colors.grey, Colors.grey.shade500, Colors.white24],
+                  colors: [
+                    Colors.grey.shade400,
+                    Colors.grey.shade200,
+                    Colors.white24,
+                  ],
                 ),
               );
             },
