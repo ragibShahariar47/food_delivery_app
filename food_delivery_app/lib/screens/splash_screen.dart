@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:food_delivery_app/constants/image_links.dart';
-import 'package:food_delivery_app/screens/welcome_screen_one.dart';
+import 'package:food_delivery_app/screens/onbording_screen.dart';
 import 'package:food_delivery_app/widgets/splash_screen/animated_rotation_circle_widget.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen>
     Timer(const Duration(milliseconds: 4000), () {
       if (!mounted) return;
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => WelcomeScreenOne()),
+        MaterialPageRoute(builder: (context) => OnbordingScreen()),
       );
     });
 

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/constants/app_colors.dart';
 
 class CustomTextStyle {
   static const TextStyle senBoldLarge = TextStyle(
     fontFamily: 'Sen',
     fontSize: 24,
     fontWeight: .bold,
-    color: Color(0xff32343E),
+    color: AppColors.largeTextColor,
   );
-  static const TextStyle senBoldSmall = TextStyle(
+  static const TextStyle senNormalRegular = TextStyle(
     fontFamily: 'Sen',
     fontSize: 16,
     fontWeight: .normal,
-    color: Color(0xff646982),
+    color: AppColors.smallTextColor,
   );
 }
