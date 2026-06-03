@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/app_colors.dart';
-import 'package:food_delivery_app/screens/splash_screen.dart';
+import 'package:food_delivery_app/ui/screens/splash_screen.dart';
 import 'package:bot_toast/bot_toast.dart';
 
 void main() {

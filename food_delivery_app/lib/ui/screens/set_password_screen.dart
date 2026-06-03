@@ -1,22 +1,22 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/text_styles.dart';
-import 'package:food_delivery_app/home_screen.dart';
-import 'package:food_delivery_app/screens/login_screen.dart';
+import 'package:food_delivery_app/ui/screens/login_screen.dart';
 import 'package:food_delivery_app/widgets/app_common_button_widget.dart';
 import 'package:food_delivery_app/widgets/auth_background.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class SetPasswordScreen extends StatefulWidget {
+  const SetPasswordScreen({super.key, required this.email});
+
+  final String email;
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<SetPasswordScreen> createState() => _SetPasswordScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController _userNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
+class _SetPasswordScreenState extends State<SetPasswordScreen> {
   final TextEditingController _passwordController = TextEditingController();
+
   final TextEditingController _passwordMatchController =
       TextEditingController();
 
@@ -33,58 +33,18 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return AuthScreenBackground(
-      heading: 'Sign Up',
-      objective: 'Please signup to get started',
+      heading: 'Setup a password',
+      objective: 'Please enter a strong password',
+      secondLine: widget.email,
       bodyWidget: Form(
         key: _formKey,
         child: Column(
-          spacing: 4,
+          spacing: 6,
           children: [
             SizedBox(
               width: .infinity,
               child: Text(
-                'Name'.toUpperCase(),
-                style: CustomTextStyle.senNormalRegular.copyWith(fontSize: 14),
-                textAlign: .start,
-              ),
-            ),
-            TextFormField(
-              controller: _userNameController,
-              decoration: InputDecoration(hintText: 'jon doe'),
-              validator: (value) {
-                if (_userNameController.text.isEmpty) {
-                  return 'Name field must not be empty.';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 15),
-            SizedBox(
-              width: .infinity,
-              child: Text(
-                'Email'.toUpperCase(),
-                style: CustomTextStyle.senNormalRegular.copyWith(fontSize: 14),
-                textAlign: .start,
-              ),
-            ),
-            TextFormField(
-              controller: _emailController,
-              decoration: InputDecoration(hintText: 'example@gmail.com'),
-              validator: (input) {
-                if (input == null) {
-                  return "Input cann't be null";
-                }
-                if (!input.contains('@')) {
-                  return "Please enter valid email.";
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 15),
-            SizedBox(
-              width: .infinity,
-              child: Text(
-                'Password'.toUpperCase(),
+                'password'.toUpperCase(),
                 style: CustomTextStyle.senNormalRegular.copyWith(fontSize: 14),
                 textAlign: .start,
               ),
@@ -155,11 +115,11 @@ class _SignupScreenState extends State<SignupScreen> {
               },
             ),
             SizedBox(height: 20),
-            commonElivatedButton('Sign Up', () {
+            commonElivatedButton('Save Password', () {
               if (_formKey.currentState?.validate() ?? false) {
                 if (_passwordController.text == _passwordMatchController.text) {
                   Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
                     (route) => false,
                   );
                 } else {

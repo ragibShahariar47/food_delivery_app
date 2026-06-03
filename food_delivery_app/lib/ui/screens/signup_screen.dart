@@ -1,22 +1,21 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/text_styles.dart';
-import 'package:food_delivery_app/screens/login_screen.dart';
+import 'package:food_delivery_app/ui/screens/map_access_screen.dart';
 import 'package:food_delivery_app/widgets/app_common_button_widget.dart';
 import 'package:food_delivery_app/widgets/auth_background.dart';
 
-class SetPasswordScreen extends StatefulWidget {
-  const SetPasswordScreen({super.key, required this.email});
-
-  final String email;
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<SetPasswordScreen> createState() => _SetPasswordScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _SetPasswordScreenState extends State<SetPasswordScreen> {
+class _SignupScreenState extends State<SignupScreen> {
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
   final TextEditingController _passwordMatchController =
       TextEditingController();
 
@@ -33,18 +32,58 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return AuthScreenBackground(
-      heading: 'Setup a password',
-      objective: 'Please enter a strong password',
-      secondLine: widget.email,
+      heading: 'Sign Up',
+      objective: 'Please signup to get started',
       bodyWidget: Form(
         key: _formKey,
         child: Column(
-          spacing: 6,
+          spacing: 4,
           children: [
             SizedBox(
               width: .infinity,
               child: Text(
-                'password'.toUpperCase(),
+                'Name'.toUpperCase(),
+                style: CustomTextStyle.senNormalRegular.copyWith(fontSize: 14),
+                textAlign: .start,
+              ),
+            ),
+            TextFormField(
+              controller: _userNameController,
+              decoration: InputDecoration(hintText: 'jon doe'),
+              validator: (value) {
+                if (_userNameController.text.isEmpty) {
+                  return 'Name field must not be empty.';
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 15),
+            SizedBox(
+              width: .infinity,
+              child: Text(
+                'Email'.toUpperCase(),
+                style: CustomTextStyle.senNormalRegular.copyWith(fontSize: 14),
+                textAlign: .start,
+              ),
+            ),
+            TextFormField(
+              controller: _emailController,
+              decoration: InputDecoration(hintText: 'example@gmail.com'),
+              validator: (input) {
+                if (input == null) {
+                  return "Input cann't be null";
+                }
+                if (!input.contains('@')) {
+                  return "Please enter valid email.";
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 15),
+            SizedBox(
+              width: .infinity,
+              child: Text(
+                'Password'.toUpperCase(),
                 style: CustomTextStyle.senNormalRegular.copyWith(fontSize: 14),
                 textAlign: .start,
               ),
@@ -115,11 +154,11 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
               },
             ),
             SizedBox(height: 20),
-            commonElivatedButton('Save Password', () {
+            commonElivatedButton('Sign Up', () {
               if (_formKey.currentState?.validate() ?? false) {
                 if (_passwordController.text == _passwordMatchController.text) {
                   Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => MapAccessScreen()),
                     (route) => false,
                   );
                 } else {

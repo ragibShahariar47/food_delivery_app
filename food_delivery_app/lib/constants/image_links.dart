@@ -7,5 +7,6 @@ class ImageLinks {
   static const String apple = 'assets/images/apple.png';
   static const String facebook = 'assets/images/facebook-circular-logo.png';
   static const String x = 'assets/images/twitter.png';
+  static const String map = 'assets/images/map.png';
   
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_kit/flutter_otp_kit.dart';
 import 'package:food_delivery_app/constants/app_colors.dart';
-import 'package:food_delivery_app/screens/set_password_screen.dart';
+import 'package:food_delivery_app/ui/screens/set_password_screen.dart';
 import 'package:food_delivery_app/widgets/auth_background.dart';
 
 class OtpVerificationScreen extends StatelessWidget {

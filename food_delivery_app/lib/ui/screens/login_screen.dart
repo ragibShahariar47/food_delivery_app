@@ -3,8 +3,8 @@ import 'package:food_delivery_app/constants/app_colors.dart';
 import 'package:food_delivery_app/constants/image_links.dart';
 import 'package:food_delivery_app/constants/text_styles.dart';
 import 'package:food_delivery_app/home_screen.dart';
-import 'package:food_delivery_app/screens/forgot_password_screen.dart';
-import 'package:food_delivery_app/screens/signup_screen.dart';
+import 'package:food_delivery_app/ui/screens/forgot_password_screen.dart';
+import 'package:food_delivery_app/ui/screens/signup_screen.dart';
 import 'package:food_delivery_app/widgets/app_common_button_widget.dart';
 import 'package:food_delivery_app/widgets/auth_background.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/text_styles.dart';
-import 'package:food_delivery_app/screens/otp_verification_screen.dart';
+import 'package:food_delivery_app/ui/screens/otp_verification_screen.dart';
 import 'package:food_delivery_app/widgets/app_common_button_widget.dart';
 import 'package:food_delivery_app/widgets/auth_background.dart';
 
