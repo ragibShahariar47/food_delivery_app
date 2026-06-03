@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/text_styles.dart';
-import 'package:food_delivery_app/home_screen.dart';
 import 'package:food_delivery_app/screens/login_screen.dart';
 import 'package:food_delivery_app/widgets/app_common_button_widget.dart';
 import 'package:food_delivery_app/widgets/auth_background.dart';
 
 class SetPasswordScreen extends StatefulWidget {
-  const SetPasswordScreen({super.key});
+  const SetPasswordScreen({super.key, required this.email});
+
+  final String email;
 
   @override
   State<SetPasswordScreen> createState() => _SetPasswordScreenState();
@@ -33,6 +34,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
     return AuthScreenBackground(
       heading: 'Setup a password',
       objective: 'Please enter a strong password',
+      secondLine: widget.email,
       bodyWidget: Form(
         key: _formKey,
         child: Column(
@@ -112,7 +114,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
               },
             ),
             SizedBox(height: 20),
-            commonElivatedButton('Login', () {
+            commonElivatedButton('Save Password', () {
               if (_formKey.currentState?.validate() ?? false) {
                 Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(builder: (context) => LoginScreen()),
