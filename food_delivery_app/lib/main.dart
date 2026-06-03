@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        colorScheme: ColorScheme.of(context).copyWith(primary: AppColors.primary),
         fontFamily: 'San',
         scaffoldBackgroundColor: Color(0xffF3F3F3),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -30,6 +31,20 @@ class MyApp extends StatelessWidget {
             foregroundColor: WidgetStatePropertyAll(AppColors.smallTextColor),
           ),
         ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Color(0xFFF0F5FA),
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 14),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide.none
+          ),
+          hintStyle: TextStyle(color: AppColors.smallTextColor),
+        ),
+        iconTheme: IconThemeData(color: AppColors.smallTextColor),
+        checkboxTheme: CheckboxThemeData(
+          side: BorderSide(color: AppColors.smallTextColor)
+        )
       ),
       home: SplashScreen(),
     );

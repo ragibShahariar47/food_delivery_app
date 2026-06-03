@@ -3,6 +3,7 @@ import 'package:food_delivery_app/constants/app_colors.dart';
 import 'package:food_delivery_app/constants/image_links.dart';
 import 'package:food_delivery_app/constants/text_styles.dart';
 import 'package:food_delivery_app/screens/login_screen.dart';
+import 'package:food_delivery_app/widgets/app_common_button_widget.dart';
 
 class OnbordingScreen extends StatefulWidget {
   const OnbordingScreen({super.key});
@@ -95,16 +96,9 @@ class _OnbordingScreenState extends State<OnbordingScreen> {
               SizedBox(height: 30),
               PageIndicator(colorList: colorList),
               SizedBox(height: 70),
-              SizedBox(
-                height: 64,
-                width: 327,
-                child: ElevatedButton(
-                  onPressed: onNextTap,
-                  child: Text('Next'),
-                ),
-              ),
+              commonElivatedButton('Next', onNextTap),
               SizedBox(height: 10),
-              TextButton(onPressed: () {}, child: Text('Skip')),
+              TextButton(onPressed: onSkip, child: Text('Skip')),
             ],
           ),
         ),
