@@ -190,7 +190,7 @@ class _LoginFormState extends State<LoginForm> {
             'Or',
             style: CustomTextStyle.senNormalRegular.copyWith(fontWeight: .bold),
           ),
-          SizedBox(height: 2),
+          SizedBox(height: 8),
           Row(
             mainAxisAlignment: .center,
             spacing: 30,

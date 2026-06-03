@@ -44,7 +44,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
             SizedBox(
               width: .infinity,
               child: Text(
-                'Email'.toUpperCase(),
+                'password'.toUpperCase(),
                 style: CustomTextStyle.senNormalRegular.copyWith(fontSize: 14),
                 textAlign: .start,
               ),
