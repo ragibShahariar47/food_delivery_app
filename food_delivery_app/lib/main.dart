@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/app_colors.dart';
 import 'package:food_delivery_app/screens/splash_screen.dart';
+import 'package:bot_toast/bot_toast.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: BotToastInit(),
+      navigatorObservers: [BotToastNavigatorObserver()],
       theme: ThemeData(
         colorScheme: ColorScheme.of(context).copyWith(primary: AppColors.primary),
         fontFamily: 'San',

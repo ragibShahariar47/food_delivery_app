@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/text_styles.dart';
 import 'package:food_delivery_app/screens/login_screen.dart';
@@ -116,10 +117,16 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
             SizedBox(height: 20),
             commonElivatedButton('Save Password', () {
               if (_formKey.currentState?.validate() ?? false) {
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                  (route) => false,
-                );
+                if (_passwordController.text == _passwordMatchController.text) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    (route) => false,
+                  );
+                } else {
+                  BotToast.showSimpleNotification(
+                    title: 'Password did not match, please try again.',
+                  );
+                }
               }
             }),
           ],

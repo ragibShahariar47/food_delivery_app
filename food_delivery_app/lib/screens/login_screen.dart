@@ -160,7 +160,6 @@ class _LoginFormState extends State<LoginForm> {
               );
             }
           }),
-          Spacer(),
           Row(
             mainAxisAlignment: .center,
             children: [
@@ -191,7 +190,7 @@ class _LoginFormState extends State<LoginForm> {
             'Or',
             style: CustomTextStyle.senNormalRegular.copyWith(fontWeight: .bold),
           ),
-          SizedBox(height: 14),
+          SizedBox(height: 2),
           Row(
             mainAxisAlignment: .center,
             spacing: 30,
